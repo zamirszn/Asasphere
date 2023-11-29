@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy to Clipboard</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #copyIcon {
+            cursor: pointer;
+            font-size: 24px;
+            color: #007bff; /* Blue color */
+        }
+
+        #copyIcon:hover {
+            text-decoration
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- You can use any icon library (e.g., Font Awesome) or your custom icon -->
+        
+         <p id="copyText">Text to be copied
+        <!--   (Page Facing Up emoji) -->
+        <span id="copyIcon">&#x1F4C4;</span>
+    </div>
+
+    <script>
+        document.getElementById('copyIcon').addEventListener('click', function () {
+            copyToClipboard('copyText');
+        });
+
+        function copyToClipboard(elementId) {
+            var textElement = document.getElementById(elementId);
+            var textArea = document.createElement('textarea');
+
+            textArea.value = textElement.innerText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            alert('Text copied to clipboard!');
+        }
+    </script>
+</body>
+
+</html>

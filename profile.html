@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.user-name {
+    margin: 10px 0 5px 0;
+}
+
+.user-username {
+    color: #888;
+}
+
+.profile-details {
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.social-link {
+    color: #007bff;
+}
+
+.profile-actions {
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.privacy-setting {
+    color: green;
+}
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="user-avatar.jpg" alt="User Avatar" class="profile-picture">
+            <h1 class="user-name">John Doe</h1>
+            <p class="user-username">@johndoe</p>
+        </div>
+
+        <div class="profile-details">
+            <div class="section">
+                <h2>Contact Information</h2>
+                <p>Email: johndoe@example.com</p>
+                <p>Phone: +1 123-456-7890</p>
+            </div>
+
+            <div class="section">
+                <h2>Biographical Information</h2>
+                <p>Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Location: City, Country</p>
+            </div>
+
+            <div class="section">
+                <h2>Account Information</h2>
+                <p>Account Type: Standard User</p>
+                <p>Join Date: January 1, 2023</p>
+            </div>
+
+            <div class="section">
+                <h2>Social Media</h2>
+                <p>Twitter: <a href="https://twitter.com/johndoe" target="_blank">@johndoe</a></p>
+                <!-- Add more social media links as needed -->
+            </div>
+
+            <div class="section">
+                <h2>Activity and Statistics</h2>
+                <p>Posts: 50</p>
+                <p>Followers: 100</p>
+            </div>
+
+            <div class="section">
+                <h2>Settings</h2>
+                <p>Privacy Settings: <span class="privacy-setting">Public</span></p>
+                <!-- Add more account settings as needed -->
+            </div>
+        </div>
+
+        <div class="profile-actions">
+          <a href="editprofile.html">  <button id="editProfileBtn">Edit Profile</button></a>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('editProfileBtn').addEventListener('click', function () {
+    alert('Redirect to edit profile page');
+});
+
+document.getElementById('logoutBtn').addEventListener('click', function () {
+    alert('Logging out...');
+    // Add logic for logging out here
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Additional styles for the CAPTCHA */
+        .captcha-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #captcha {
+            width: 60%;
+        }
+
+        #refreshCaptcha {
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Login Page</h1>
+    </header>
+
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <div class="captcha-container">
+            <label for="captcha">CAPTCHA:</label>
+            <input type="text" id="captcha" name="captcha" required>
+            <span id="refreshCaptcha" onclick="refreshCaptcha()">🔄 Refresh CAPTCHA</span>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <footer>
+        <p>
+            &copy; 2023 Asasphere Innovation. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get values from the form
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // For demonstration purposes, log the login data to the console
+            console.log('Login Data - Username:', username, 'Password:', password);
+
+            // You would typically send this data to your server for authentication.
+            // The server would then verify the credentials and return an authentication token.
+        });
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get values from the form
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var captcha = document.getElementById('captcha').value;
+
+            // For demonstration purposes, log the login data to the console
+            console.log('Login Data - Username:', username, 'Password:', password, 'CAPTCHA:', captcha);
+
+            // You would typically send this data to your server for authentication.
+            // The server would then verify the credentials and CAPTCHA.
+        });
+
+        function refreshCaptcha() {
+            // You can implement logic to generate a new CAPTCHA here
+            // For simplicity, let's just reset the input field for demonstration
+            document.getElementById('captcha').value = '';
+        }
+    </script>
+</body>
+
+</html>

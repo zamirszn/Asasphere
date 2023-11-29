@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Transfer Payment - Goods Advertisement</title>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .payment-content {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bank-selection {
+            margin-bottom: 20px;
+        }
+
+        .bank-selection label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        #bankSelect {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .payment-instructions p {
+            margin-bottom: 10px;
+        }
+
+        #confirmPayment {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #confirmPayment:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative; /* Add 'relative' here */
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="payment-content">
+        <h1>Bank Transfer Payment</h1>
+        <div class="bank-selection">
+            <label for="bankSelect">Select Bank:</label>
+            <select id="bankSelect" name="bankSelect" onchange="displayBankDetails()">
+                <option value="gtb">Guaranty Trust Bank (GTB)</option>
+                <option value="uba">United Bank for Africa (UBA)</option>
+                <option value="access">Access Bank</option>
+                <!-- Add more banks as needed -->
+            </select>
+        </div>
+
+        <div class="payment-instructions" id="bankDetails">
+            <!-- Bank details will be displayed here -->
+        </div>
+
+        <button id="confirmPayment">Confirm Payment</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Asasphere Innovation. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('copyIcon').addEventListener('click', function () {
+            copyToClipboard('copyText');
+        });
+
+        function copyToClipboard(elementId) {
+            var textElement = document.getElementById(elementId);
+            var textArea = document.createElement('textarea');
+
+            textArea.value = textElement.innerText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            alert('Account number copied!');
+        }
+
+        document.getElementById('confirmPayment').addEventListener('click', function () {
+            alert('payment confirmed!');
+        });
+            // Get the selected bank from the dropdown
+            var selectedBank = document.getElementById('bankSelect').value;
+
+        // Function to initialize the bank details
+        function initBankDetails() {
+            return {
+                gtb: {
+                    accountNumber: '0112233445',
+                    bankName: 'Guaranty Trust Bank (GTB)',
+                },
+                uba: {
+                    accountNumber: '0223344556',
+                    bankName: 'United Bank for Africa (UBA)',
+                },
+                access: {
+                    accountNumber: '0334455667',
+                    bankName: 'Access Bank',
+                },
+                // Add more banks as needed
+            };
+        }
+
+        function displayBankDetails() {
+            // Get the selected bank from the dropdown
+            var selectedBank = document.getElementById('bankSelect').value;
+
+            // Initialize bank details
+            var bankDetails = initBankDetails();
+
+            // Display bank details based on the selected bank
+            var details = bankDetails[selectedBank];
+
+            // Update the bank details section
+            var bankDetailsElement = document.getElementById('bankDetails');
+            bankDetailsElement.innerHTML = `
+                <p>Account Name: Goods Advertisement Ltd</p>
+                <p>Account Number: ${details.accountNumber}</p>
+                <p>Bank: ${details.bankName}</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>

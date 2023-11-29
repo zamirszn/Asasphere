@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(138, 132, 132);
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: black;
+    color: rgb(223, 228, 226);
+    padding: 20px 40px 50px
+}
+section {
+    background-color: azure;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    color: blue;
+}
+div {
+    background-color: rgb(219, 46, 190);
+    margin: auto;
+    width: 100px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+li {
+    display: inline-block;
+    margin: 20px;
+}
+footer {
+    background-color: brown;
+    padding: 10px 20px
+}
